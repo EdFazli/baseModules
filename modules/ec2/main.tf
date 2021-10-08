@@ -1,7 +1,3 @@
-terraform {
-  # The configuration for this backend will be filled in by Terragrunt
-  backend "s3" {}
-}
 
 data "aws_ami" "amazon_cis_windows" {
   most_recent = true
