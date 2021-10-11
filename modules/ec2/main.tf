@@ -50,7 +50,7 @@ module "ec2" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "2.12.0"
   
-  for_each = var.instances
+  for_each               = var.instances
 
   name                   = lookup(each.value, "name", null)
   instance_count         = lookup(each.value, "instance_count", null)
@@ -61,10 +61,7 @@ module "ec2" {
   vpc_security_group_ids = each.value.security_groups
   subnet_id              = lookup(each.value, "subnet_id", null)
 
-  tags = each.value.ec2_tags
+  tags                   = each.value.ec2_tags
 }
 
-variable "instances" {
-  type = any
-}
 
