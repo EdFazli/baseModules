@@ -3,37 +3,24 @@
 ## MODULES  
   
 ## REPOSITORY  
-Repository URL: https://edfazli92@dev.azure.com/edfazli92/TerraformAnsible_CICD/_git/ModularTerraform.  
+Repository URL: "git@ssh.dev.azure.com:v3/edfazli92/Terraform/baseModules".  
  
 ### TERRAFORM  
 Download the installer here:  
-- Terraform: [Terraform Installer](https://www.terraform.io/downloads.html).  
-  
-Installation has been done in Vagrant environment (refer ./Vagrant/vagrantfile).   
-  
-Prerequisites:
-- Remote Backend State = S3 bucket: *edfazli92-terraform-statefile*.  
-- DynamoDB Table: *tfstatelocking*.   
-    
-### TERRAGRUNT  
-  
+- Terraform: [Terraform Installer](https://www.terraform.io/downloads.html).    
   
 ## SOFTWARE DEPENDENCIES  
 Please take note on the dependencies as below.  
   
 Terraform:  
--  
+- terraform version 1.0.8.  
+- terraform aws registry (resources).  
   
 ## VARIABLES REFERENCES  
   
-## CI/CD PIPELINES  
-Description on how to build terraform code and run the scripts.  
-  
 ## REVIEWER  
-ITOPS person in charge to review and merge scripts to main repository and deploy the changes.  
+ITOPS person in charge to review and merge modules to main repository and deploy the changes.  
 1. Kelvin Go
-  
-## LATEST RELEASES  
   
 ## CONTRIBUTING  
 We are pleased for anyone who want to contribute and participate in this project which you can:
