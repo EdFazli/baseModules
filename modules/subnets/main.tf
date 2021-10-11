@@ -1,4 +1,8 @@
-terraform {
-  # The configuration for this backend will be filled in by Terragrunt
-  backend "s3" {}
+module "subnet_tagging" {
+  source = "./resource"
+
+  vpc_id     = var.subnet_vpcid
+  cidr_block = var.subnet_cidr_block
+
+  tags       = var.subnet_tags
 }
