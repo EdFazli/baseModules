@@ -384,7 +384,7 @@ resource "aws_subnet" "public" {
     {
       "Name" = format(
         "%s-${var.public_subnet_suffix}-%s",
-        var.name,
+        element(var.public_subnets_name, count.index),
         element(var.azs, count.index),
       )
     },
@@ -412,7 +412,7 @@ resource "aws_subnet" "private" {
     {
       "Name" = format(
         "%s-${var.private_subnet_suffix}-%s",
-        var.name,
+        element(var.private_subnets_name, count.index),
         element(var.azs, count.index),
       )
     },
