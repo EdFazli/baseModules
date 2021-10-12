@@ -15,7 +15,16 @@ variable "azs" {
 variable "private_subnets" {
   type = any
 }
+
+variable "private_subnets_name" {
+  type = any
+}
+
 variable "public_subnets" {
+  type = any
+}
+
+variable "public_subnets_name" {
   type = any
 }
 
