@@ -19,3 +19,7 @@ variable "private_subnets_name" {
 variable "azs" {
   type = list(string)
 }
+
+variable "vpc_id" {
+  type = list(string)
+}
