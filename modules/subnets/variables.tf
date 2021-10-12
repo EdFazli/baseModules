@@ -1,25 +1,17 @@
 ## Custom Variables
 
-variable "publicsubnet_vpcid" {
-  type = string
+variable "public_subnets" {
+  type = list(string)
 }
 
-variable "publicsubnet_cidr_block" {
-  type = string
+variable "public_subnets_name" {
+  type = list(string)
 }
 
-variable "publicsubnet_tags" {
-  type = any
+variable "private_subnets" {
+  type = list(string)
 }
 
-variable "privatesubnet_vpcid" {
-  type = string
-}
-
-variable "privatesubnet_cidr_block" {
-  type = string
-}
-
-variable "privatesubnet_tags" {
-  type = any
+variable "private_subnets_name" {
+  type = list(string)
 }

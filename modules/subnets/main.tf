@@ -1,17 +1,9 @@
-module "public_subnet" {
+module "subnets" {
   source = "./resource"
 
-  vpc_id     = var.publicsubnet_vpcid
-  cidr_block = var.publicsubnet_cidr_block
+  public_subnets_name  = var.public_subnets_name
+  public_subnets       = var.public_subnets
 
-  tags       = var.publicsubnet_tags
-}
-
-module "private_subnet" {
-  source = "./resource"
-
-  vpc_id     = var.privatesubnet_vpcid
-  cidr_block = var.privatesubnet_cidr_block
-
-  tags       = var.privatesubnet_tags
+  private_subnets_name = var.private_subnets_name
+  private_subnets      = var.private_subnets
 }
