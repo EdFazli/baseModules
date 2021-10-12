@@ -172,8 +172,20 @@ variable "public_subnets" {
   default     = []
 }
 
+variable "public_subnets_name" {
+  description = "A list of name for the public subnets"
+  type        = list(string)
+  default     = []
+}
+
 variable "private_subnets" {
   description = "A list of private subnets inside the VPC"
+  type        = list(string)
+  default     = []
+}
+
+variable "private_subnets_name" {
+  description = "A list of name for the private subnets"
   type        = list(string)
   default     = []
 }
