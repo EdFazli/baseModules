@@ -19,3 +19,7 @@ variable "private_subnets" {
 variable "private_subnets_name" {
   type = list(string)
 }
+
+variable "vpc_id" {
+    type = string
+}
