@@ -1,7 +1,7 @@
 resource "aws_subnet" "public" {
   count = length(var.public_subnets) > 0? length(var.public_subnets) : 0
 
-  vpc_id     = aws_vpc.this.*.id
+  vpc_id     = data.aws_vpc.this.*.id
   cidr_block = element(concat(var.public_subnets, [""]), count.index)
 
   tags       = {
@@ -17,7 +17,7 @@ resource "aws_subnet" "public" {
 resource "aws_subnet" "private" {
   count = length(var.private_subnets) > 0? length(var.private_subnets) : 0
 
-  vpc_id     = aws_vpc.this.*.id
+  vpc_id     = data.aws_vpc.this.*.id
   cidr_block = element(concat(var.private_subnets, [""]), count.index)
 
   tags       = {
