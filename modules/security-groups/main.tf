@@ -2,12 +2,14 @@ module "security-group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.3.0"
   
-  name                      = var.sg_name
-  description               = var.sg_description
-  vpc_id                    = var.sg_vpcid
+  for_each = var.sg
 
-  ingress_with_cidr_blocks  = var.sg_ingress_with_cidr_blocks
-  egress_with_cidr_blocks   = var.sg_egress_with_cidr_blocks
+  name                      = lookup(sg.value, "sg_name", null)
+  description               = lookup(sg.value, "sg_description", null)
+  vpc_id                    = lookup(sg.value, "sg_vpcid", default)
 
-  tags                      = var.sg_tags
+  ingress_with_cidr_blocks  = lookup(sg.value, "sg_ingress_with_cidr_blocks", null)
+  egress_with_cidr_blocks   = lookup(sg.value, "sg_egress_with_cidr_blocks", null)
+
+  tags                      = lookup(sg.value, "sg_tags", null)
 }
