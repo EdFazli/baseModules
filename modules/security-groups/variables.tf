@@ -1,5 +1,17 @@
 ## Custom Variables
 
+variable "backend_vpc_bucket" {
+  type = string
+}
+
+variable "backend_vpc_key" {
+  type = string
+}
+
+variable "backend_vpc_region" {
+  type = string
+}
+
 variable "sg" {
   type = any
 }
