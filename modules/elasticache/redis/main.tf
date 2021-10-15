@@ -14,13 +14,13 @@ module "redis" {
   at_rest_encryption_enabled     = lookup(redis.value, "redis_at_rest_encryption_enabled", null)
   transit_encryption_enabled     = lookup(redis.value, "redis_transit_encryption_enabled", null)
   apply_immediately              = lookup(redis.value, "redis_apply_immediately", null)
-  redis_clusters                 = lookup(redis.value, "redis_redis_clusters", null)
-  redis_failover                 = lookup(redis.value, "redis_redis_failover", null)
+  redis_clusters                 = lookup(redis.value, "redis_clusters", null)
+  redis_failover                 = lookup(redis.value, "redis_failover", null)
   redis_maintenance_window       = lookup(redis.value, "redis_maintenance_window", null)
   subnets                        = lookup(redis.value, "redis_subnets", null)
   vpc_id                         = lookup(redis.value, "redis_vpc_id", null)
   allowed_security_groups        = lookup(redis.value, "redis_allowed_security_groups", null)
-  redis_snapshot_retention_limit = lookup(redis.value, "redis_redis_snapshot_retention_limit", null)
-  redis_parameters               = lookup(redis.value, "redis_redis_parameters", null)
+  redis_snapshot_retention_limit = lookup(redis.value, "redis_snapshot_retention_limit", null)
+  redis_parameters               = lookup(redis.value, "redis_parameters", null)
 
 }
