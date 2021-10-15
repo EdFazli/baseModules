@@ -1,3 +1,12 @@
+data "terraform_remote_state" "vpc" {
+  backend = "s3"
+  config = {
+    bucket = "${var.backend_vpc_bucket}"
+    key    = "${var.backend_vpc_key}"
+    region = "${var.backend_vpc_region}"
+  }
+}
+
 module "security-group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.3.0"
