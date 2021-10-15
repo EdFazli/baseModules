@@ -15,6 +15,7 @@ module "vpc" {
   enable_nat_gateway     = each.value.enable_nat_gateway
   one_nat_gateway_per_az = each.value.one_nat_gateway_per_az
   enable_vpn_gateway     = each.value.enable_vpn_gateway
+  customer_gateways      = each.value.customer_gateways
   enable_flow_log        = each.value.enable_flow_log
 
   tags                   = var.each.value.tags
