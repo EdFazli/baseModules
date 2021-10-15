@@ -15,8 +15,7 @@ module "security-group" {
 
   name                      = each.value.name
   description               = each.value.description
-  vpc_id                    = lookup(each.value, "vpc_id", default)
-
+  vpc_id                    = data.terraform_remote_state.vpc.vpc_id
   ingress_with_cidr_blocks  = each.value.ingress_with_cidr_blocks
   egress_with_cidr_blocks   = each.value.egress_with_cidr_blocks
 
