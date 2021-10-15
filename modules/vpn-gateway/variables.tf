@@ -1,6 +1,6 @@
 ## Custom Variables
 
-variable "vgw_vpcid" {
+variable "vgw_vpc_id" {
   type = string
 }
 

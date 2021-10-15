@@ -2,7 +2,7 @@ module "vpn-gateway" {
   source  = "terraform-aws-modules/vpn-gateway/aws"
   version = "2.11.0"
   
-  vpc_id                                   = var.vgw_vpcid
+  vpc_id                                   = var.vgw_vpc_id
   vpn_gateway_id                           = var.vgw_vpn_gateway_id 
   customer_gateway_id                      = var.vgw_customer_gateway_id
 
