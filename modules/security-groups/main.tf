@@ -13,12 +13,12 @@ module "security-group" {
   
   for_each = var.sg
 
-  name                      = lookup(sg.value, "sg_name", null)
-  description               = lookup(sg.value, "sg_description", null)
+  name                      = lookup(sg.value, "${var.sg_name}", null)
+  description               = lookup(sg.value, "${var.sg_description}", null)
   vpc_id                    = "${data.terraform_remote_state.vpc.vpc_id}"
 
-  ingress_with_cidr_blocks  = lookup(sg.value, "sg_ingress_with_cidr_blocks", null)
-  egress_with_cidr_blocks   = lookup(sg.value, "sg_egress_with_cidr_blocks", null)
+  ingress_with_cidr_blocks  = lookup(sg.value, "${var.sg_ingress_with_cidr_blocks}", null)
+  egress_with_cidr_blocks   = lookup(sg.value, "${var.sg_egress_with_cidr_blocks}", null)
 
-  tags                      = lookup(sg.value, "sg_tags", null)
+  tags                      = lookup(sg.value, "${var.sg_tags}", null)
 }
