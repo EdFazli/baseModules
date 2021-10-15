@@ -18,7 +18,7 @@ module "vpc" {
   customer_gateways      = each.value.customer_gateways
   enable_flow_log        = each.value.enable_flow_log
 
-  tags                   = var.each.value.tags
+  tags                   = each.value.tags
 
 }
 
