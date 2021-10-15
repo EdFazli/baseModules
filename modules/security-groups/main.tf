@@ -13,12 +13,12 @@ module "security-group" {
   
   for_each = var.sg
 
-  name                      = each.value.sg_name
-  description               = each.value.sg_description
+  name                      = each.value.name
+  description               = each.value.description
   vpc_id                    = "${data.terraform_remote_state.vpc.vpc_id}"
 
-  ingress_with_cidr_blocks  = each.value.sg_ingress_with_cidr_blocks
-  egress_with_cidr_blocks   = each.value.sg_egress_with_cidr_blocks
+  ingress_with_cidr_blocks  = each.value.ingress_with_cidr_blocks
+  egress_with_cidr_blocks   = each.value.egress_with_cidr_blocks
 
-  tags                      = each.value.sg_tags
+  tags                      = each.value.tags
 }
