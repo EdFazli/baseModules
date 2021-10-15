@@ -12,7 +12,7 @@ variable "sg_description" {
   type = string
 }
 
-variable "sg_vpcid" {
+variable "sg_vpc_id" {
   type = string
 }
 
