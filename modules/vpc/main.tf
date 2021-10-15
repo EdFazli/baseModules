@@ -12,13 +12,13 @@ module "vpc" {
   public_subnets         = each.value.public_subnets
   public_subnets_name    = each.value.public_subnets_name
 
-  enable_nat_gateway     = each.value.enable_nat_gateway
-  one_nat_gateway_per_az = each.value.one_nat_gateway_per_az
-  enable_vpn_gateway     = each.value.enable_vpn_gateway
-  customer_gateways      = each.value.customer_gateways
-  enable_flow_log        = each.value.enable_flow_log
+  enable_nat_gateway     = lookup(each.value, "enable_nat_gateway", null)
+  one_nat_gateway_per_az = lookup(each.value, "one_nat_gateway_per_az", null)
+  enable_vpn_gateway     = lookup(each.value, "enable_vpn_gateway", null)
+  customer_gateways      = lookup(each.value, "customer_gateways", null)
+  enable_flow_log        = lookup(each.value, "enable_flow_log", null)
 
-  tags                   = each.value.tags
+  tags                   = lookup(each.value, "tags", null)
 
 }
 
