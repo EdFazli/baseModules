@@ -15,7 +15,7 @@ module "vpc" {
   enable_nat_gateway     = lookup(each.value, "enable_nat_gateway", false)
   one_nat_gateway_per_az = lookup(each.value, "one_nat_gateway_per_az", true)
   enable_vpn_gateway     = lookup(each.value, "enable_vpn_gateway", false)
-  customer_gateways      = lookup(each.value, "customer_gateways", null)
+  customer_gateways      = lookup(each.value, "customer_gateways", {})
   enable_flow_log        = lookup(each.value, "enable_flow_log", false)
 
   tags                   = lookup(each.value, "tags", null)
