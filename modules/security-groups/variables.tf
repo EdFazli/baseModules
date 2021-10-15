@@ -1,5 +1,9 @@
 ## Custom Variables
 
+variable "sg" {
+  type = any
+}
+
 variable "sg_name" {
   type = string
 }

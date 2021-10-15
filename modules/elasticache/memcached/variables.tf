@@ -1,5 +1,9 @@
 ## Custom Variables
 
+variable "memcached" {
+  type = any
+}
+
 variable "memcached_namespace" {
   type = string
 }

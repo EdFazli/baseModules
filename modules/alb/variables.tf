@@ -1,6 +1,10 @@
 ## Custom Variables
 
 #---alb---#
+variable "alb" {
+  type = any
+}
+
 variable "alb_name" {
   type = string
 }
@@ -43,6 +47,10 @@ variable "alb_tags" {
 
 
 #---nlb---#
+variable "nlb" {
+  type = any
+}
+
 variable "nlb_name" {
   type = string
 }

@@ -1,5 +1,9 @@
 ## Custom Variables
 
+variable "efs" {
+  type = any
+}
+
 variable "efs_namespace" {
   type = string
 }

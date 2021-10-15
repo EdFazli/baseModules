@@ -1,5 +1,9 @@
 ## Custom Variables
 
+variable "redis" {
+  type = any
+}
+
 variable "redis_env" {
   type = string
 }

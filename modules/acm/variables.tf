@@ -1,5 +1,9 @@
 ## Custom Variables
 
+variable "acm" {
+  type = any
+}
+
 variable "acm_domain_name" {
   type = string
 }

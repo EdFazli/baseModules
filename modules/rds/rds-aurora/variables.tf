@@ -1,5 +1,9 @@
 ## Custom Variables
 
+variable "aurora" {
+  type = any
+}
+
 variable "aurora_name" {
   type = string
 }
