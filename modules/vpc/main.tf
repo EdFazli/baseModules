@@ -6,7 +6,7 @@ module "vpc" {
   name                   = each.value.name
   cidr                   = each.value.cidr
 
-  azs                    = each.value.azs
+  azs                    = lookup(each.value, "azs", default)
   private_subnets        = each.value.private_subnets
   private_subnets_name   = each.value.private_subnets_name
   public_subnets         = each.value.public_subnets
