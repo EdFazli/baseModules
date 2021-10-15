@@ -1,5 +1,9 @@
 ## Custom Variables
 
+variable "rds" {
+  type = any
+}
+
 variable "rds_identifier" {
   type = string
 }

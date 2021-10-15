@@ -52,16 +52,22 @@ module "ec2" {
   
   for_each               = var.instances
 
-  name                   = lookup(each.value, "name", null)
-  instance_count         = lookup(each.value, "instance_count", null)
-  ami                    = lookup(each.value, "ami", null)
-  instance_type          = lookup(each.value, "instance_type", null)
-  key_name               = lookup(each.value, "key_name", null)
-  monitoring             = false
-  vpc_security_group_ids = each.value.security_groups
-  subnet_id              = lookup(each.value, "subnet_id", null)
+  name                   = lookup(instances.value, "ec2_name", null)
+  instance_count         = lookup(instances.value, "ec2_instance_count", null)
+  ami                    = lookup(instances.value, "ec2_ami", null)
+  instance_type          = lookup(instances.value, "ec2_instance_type", null)
+  key_name               = lookup(instances.value, "ec2_key_name", null)
+  monitoring             = lookup(instances.value, "ec2_monitoring", false)
+  vpc_security_group_ids = lookup(instances.value, "ec2_security_groups", default)
+  subnet_id              = lookup(instances.value, "ec2_subnet_id", null)
+  iam_instance_profile   = lookup(instances.value, "ec2_iam_instance_profile", null)
 
-  tags                   = each.value.ec2_tags
+  tags                   = lookup(instances.value, "ec2_tags", null)
+
+  root_block_device      = lookup(instances.value, "ec2_root_block_device", default)
+  ebs_block_device       = lookup(instances.value, "ec2_ebs_block_device", null)
+
+
 }
 
 

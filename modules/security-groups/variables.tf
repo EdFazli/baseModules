@@ -1,5 +1,9 @@
 ## Custom Variables
 
+variable "sg" {
+  type = any
+}
+
 variable "sg_name" {
   type = string
 }
@@ -8,7 +12,7 @@ variable "sg_description" {
   type = string
 }
 
-variable "sg_vpcid" {
+variable "sg_vpc_id" {
   type = string
 }
 

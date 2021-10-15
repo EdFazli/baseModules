@@ -2,11 +2,13 @@ module "acm" {
   source  = "terraform-aws-modules/acm/aws"
   version = "3.2.0"
 
-  domain_name  = var.acm_domain_name
+  for_each = var.acm
 
-  subject_alternative_names = var.acm_alternative_names
+  domain_name  = lookup(acm.value, "acm_domain_name", null)
+
+  subject_alternative_names = lookup(acm.value, "acm_alternative_names", null)
 
   wait_for_validation = false
 
-  tags = var.acm_tags
+  tags = lookup(acm.value, "acm_tags", null)
 }

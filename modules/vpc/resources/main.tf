@@ -1079,7 +1079,7 @@ resource "aws_eip" "nat" {
     {
       "Name" = format(
         "%s-%s",
-        var.name,
+        "GATEWAY-NGW-EIP",
         element(var.azs, var.single_nat_gateway ? 0 : count.index),
       )
     },
@@ -1104,7 +1104,7 @@ resource "aws_nat_gateway" "this" {
     {
       "Name" = format(
         "%s-%s",
-        var.name,
+        "GATEWAY-NGW",
         element(var.azs, var.single_nat_gateway ? 0 : count.index),
       )
     },
@@ -1250,7 +1250,7 @@ resource "aws_vpn_gateway" "this" {
 
   tags = merge(
     {
-      "Name" = format("%s", var.name)
+      "Name" = format("%s-%s", "VGW-ITOPS", "${var.name}")
     },
     var.tags,
     var.vpn_gateway_tags,

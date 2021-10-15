@@ -8,39 +8,39 @@ variable "vpc_cidr" {
   type = string
 }
 
-variable "azs" {
+variable "vpc_azs" {
   type = any
 }
 
-variable "private_subnets" {
+variable "vpc_private_subnets" {
   type = any
 }
 
-variable "private_subnets_name" {
+variable "vpc_private_subnets_name" {
   type = any
 }
 
-variable "public_subnets" {
+variable "vpc_public_subnets" {
   type = any
 }
 
-variable "public_subnets_name" {
+variable "vpc_public_subnets_name" {
   type = any
 }
 
-variable "enable_nat_gateway" {
+variable "vpc_enable_nat_gateway" {
   type = bool
 }
 
-variable "enable_vpn_gateway" {
+variable "vpc_enable_vpn_gateway" {
   type = bool
 }
 
-variable "one_nat_gateway_per_az" {
+variable "vpc_one_nat_gateway_per_az" {
   type = bool
 }
 
-variable "enable_flow_log" {
+variable "vpc_enable_flow_log" {
   type = bool
 }
 
