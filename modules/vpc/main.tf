@@ -21,4 +21,3 @@ module "vpc" {
   tags                   = lookup(each.value, "tags", null)
 
 }
-
