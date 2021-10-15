@@ -1,21 +1,23 @@
 module "vpc" {
   source  = "./resources"
   
-  name                   = var.vpc_name
-  cidr                   = var.vpc_cidr
+  for_each = var.vpc
 
-  azs                    = var.vpc_azs
-  private_subnets        = var.vpc_private_subnets
-  private_subnets_name   = var.vpc_private_subnets_name
-  public_subnets         = var.vpc_public_subnets
-  public_subnets_name    = var.vpc_public_subnets_name
+  name                   = each.value.name
+  cidr                   = each.value.cidr
 
-  enable_nat_gateway     = var.vpc_enable_nat_gateway
-  one_nat_gateway_per_az = var.vpc_one_nat_gateway_per_az
-  enable_vpn_gateway     = var.vpc_enable_vpn_gateway
-  enable_flow_log        = var.vpc_enable_flow_log
+  azs                    = each.value.azs
+  private_subnets        = each.value.private_subnets
+  private_subnets_name   = each.value.private_subnets_name
+  public_subnets         = each.value.public_subnets
+  public_subnets_name    = each.value.public_subnets_name
 
-  tags                   = var.vpc_tags
+  enable_nat_gateway     = each.value.enable_nat_gateway
+  one_nat_gateway_per_az = each.value.one_nat_gateway_per_az
+  enable_vpn_gateway     = each.value.enable_vpn_gateway
+  enable_flow_log        = each.value.enable_flow_log
+
+  tags                   = var.each.value.tags
 
 }
 
