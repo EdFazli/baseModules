@@ -1,1 +1,0 @@
-## can refer outputs from "terraform-aws-modules/vpc/aws" registry
