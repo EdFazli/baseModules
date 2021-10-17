@@ -13,11 +13,7 @@ variable "ec2_instance_count" {
 }
 
 variable "ec2_ami" {
-  type = map(any)
-  default = {
-    windows = data.aws_ami.amazon_cis_windows.id
-    ubuntu  = data.aws_ami.amazon_ubuntu.id
-  }
+  type = string
 }
 
 variable "ec2_instance_type" {
