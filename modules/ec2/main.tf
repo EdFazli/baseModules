@@ -58,7 +58,7 @@ module "ec2" {
   instance_type          = each.value.instance_type
   key_name               = each.value.key_name
   monitoring             = each.value.monitoring
-  security_groups        = each.value.security_groups
+  vpc_security_group_ids = each.value.vpc_security_group_ids
   subnet_id              = each.value.subnet_id
   iam_instance_profile   = each.value.iam_instance_profile
 
