@@ -1,50 +1,50 @@
 
-data "aws_ami" "amazon_cis_windows" {
-  most_recent = true
-  owners = ["amazon"]
+# data "aws_ami" "amazon_cis_windows" {
+#   most_recent = true
+#   owners = ["amazon"]
 
-  filter {
-    name = "manifest-location"
-    values = ["amazon/Windows_Server-2019-English-Full-Base*"]
-  }
-  filter {
-    name = "platform"
-    values = ["windows"]
-  }
-  filter {
-    name = "architecture"
-    values = ["x86_64"]
-  }
+#   filter {
+#     name = "manifest-location"
+#     values = ["amazon/Windows_Server-2019-English-Full-Base*"]
+#   }
+#   filter {
+#     name = "platform"
+#     values = ["windows"]
+#   }
+#   filter {
+#     name = "architecture"
+#     values = ["x86_64"]
+#   }
 
-  tags = {
-    "Terraform" = "TRUE"
-    "Budget Sub-Code" = "6-0418-11"
-  }
-}
+#   tags = {
+#     "Terraform" = "TRUE"
+#     "Budget Sub-Code" = "6-0418-11"
+#   }
+# }
 
-data "aws_ami" "amazon_ubuntu" {
-  most_recent = true
-  owners = ["amazon"]
+# data "aws_ami" "amazon_ubuntu" {
+#   most_recent = true
+#   owners = ["amazon"]
 
-  filter {
-    name = "manifest-location"
-    values = ["099720109477/ubuntu/images/hvm-ssd/ubuntu*"]
-  }
-  filter {
-    name = "platform"
-    values = ["Linux/UNIX"]
-  }
-  filter {
-    name = "architecture"
-    values = ["x86_64"]
-  }
+#   filter {
+#     name = "manifest-location"
+#     values = ["099720109477/ubuntu/images/hvm-ssd/ubuntu*"]
+#   }
+#   filter {
+#     name = "platform"
+#     values = ["Linux/UNIX"]
+#   }
+#   filter {
+#     name = "architecture"
+#     values = ["x86_64"]
+#   }
 
-  tags = {
-    "Terraform" = "TRUE"
-    "Budget Sub-Code" = "6-0418-11"
-  }
+#   tags = {
+#     "Terraform" = "TRUE"
+#     "Budget Sub-Code" = "6-0418-11"
+#   }
 
-}
+# }
 
 module "ec2" {
   source  = "terraform-aws-modules/ec2-instance/aws"
@@ -58,7 +58,7 @@ module "ec2" {
   instance_type          = each.value.instance_type
   key_name               = each.value.key_name
   monitoring             = each.value.monitoring
-  vpc_security_group_ids = each.value.vpc_security_group_ids
+  vpc_security_group_ids = lookup(each.value, "vpc_security_group_ids", default)
   subnet_id              = each.value.subnet_id
   iam_instance_profile   = each.value.iam_instance_profile
 
